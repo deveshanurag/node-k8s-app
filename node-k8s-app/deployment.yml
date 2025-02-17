@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-file-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-file-app
+  template:
+    metadata:
+      labels:
+        app: node-file-app
+    spec:
+      containers:
+        - name: node-file-app
+          image: deveshanurag/node-k8s-app:latest
+          ports:
+            - containerPort: 3000
